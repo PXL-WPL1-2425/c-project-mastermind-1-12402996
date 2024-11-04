@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BerkeÖzdemirPE8sprint1mastermind
+namespace BerkeÖzdemirC_mastermindSprint1
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -20,6 +20,5 @@ namespace BerkeÖzdemirPE8sprint1mastermind
         {
             InitializeComponent();
         }
-
     }
 }
