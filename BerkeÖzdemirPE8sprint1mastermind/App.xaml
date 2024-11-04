@@ -1,0 +1,9 @@
+﻿<Application x:Class="BerkeÖzdemirPE8sprint1mastermind.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:BerkeÖzdemirPE8sprint1mastermind"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
