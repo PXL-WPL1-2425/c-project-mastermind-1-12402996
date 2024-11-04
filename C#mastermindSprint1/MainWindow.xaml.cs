@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BerkeÖzdemirC_mastermindSprint1
+namespace C_mastermindSprint1
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
