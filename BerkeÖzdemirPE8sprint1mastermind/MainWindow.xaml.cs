@@ -20,5 +20,6 @@ namespace BerkeÖzdemirPE8sprint1mastermind
         {
             InitializeComponent();
         }
+
     }
 }
