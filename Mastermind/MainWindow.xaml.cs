@@ -39,7 +39,22 @@ namespace C_mastermindSprint1
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            GenerateRandomCode();            
+            List<string> colors = new List<string> { "Rood", "Geel", "Oranje", "Wit", "Groen", "Blauw" };
+
+            GenerateRandomCode();
+
+            foreach (string color in colors)
+            {
+                comboBoxColour1.Items.Add(new ComboBoxItem { Content = color });
+                comboBoxColour2.Items.Add(new ComboBoxItem { Content = color });
+                comboBoxColour3.Items.Add(new ComboBoxItem { Content = color });
+                comboBoxColour4.Items.Add(new ComboBoxItem { Content = color });
+            }
+        }
+
+        private void checkButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
