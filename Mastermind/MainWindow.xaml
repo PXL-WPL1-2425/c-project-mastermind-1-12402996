@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:C_mastermindSprint1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Background="Black">
     <Grid>
-        <Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -19,11 +19,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <ComboBox x:Name="comboBoxColour1" Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="0" Height="50"/>
-        <ComboBox x:Name="comboBoxColour2" Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="0" Height="50"/>
-        <ComboBox x:Name="comboBoxColour3" Grid.ColumnSpan="1" Grid.Column="3" Grid.Row="0" Height="50"/>
-        <ComboBox x:Name="comboBoxColour4" Grid.ColumnSpan="1" Grid.Column="4" Grid.Row="0" Height="50"/>
-        <Button x:Name="checkButton" Content="Check Button" Grid.ColumnSpan="1" Grid.Column="2" Grid.Row="3" Height="130" Click="checkButton_Click"/>
+        <Label x:Name="labelColorOne" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"/>
+        <Label x:Name="labelColorTwo" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"/>
+        <Label x:Name="labelColorThree" Grid.Column="3" Grid.Row="0" Grid.RowSpan="3"/>
+        <Label x:Name="labelColorFour" Grid.Column="4" Grid.Row="0" Grid.RowSpan="3"/>
+        <ComboBox x:Name="comboBoxColour1" Grid.ColumnSpan="1" Grid.Column="0" Grid.Row="1" Height="50" SelectionChanged="ComboBoxColour_SelectionChanged1"/>
+        <ComboBox x:Name="comboBoxColour2" Grid.ColumnSpan="1" Grid.Column="1" Grid.Row="1" Height="50" SelectionChanged="ComboBoxColour_SelectionChanged1"/>
+        <ComboBox x:Name="comboBoxColour3" Grid.ColumnSpan="1" Grid.Column="3" Grid.Row="1" Height="50" SelectionChanged="ComboBoxColour_SelectionChanged1"/>
+        <ComboBox x:Name="comboBoxColour4" Grid.ColumnSpan="1" Grid.Column="4" Grid.Row="1" Height="50" SelectionChanged="ComboBoxColour_SelectionChanged1"/>
+        <Button x:Name="checkButton" Content="Check Button" Grid.RowSpan="3" Grid.Column="2" Grid.Row="0" Background="Silver" FontWeight="UltraBold"/>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Threading.Tasks.Dataflow;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,11 +21,11 @@ namespace C_mastermindSprint1
         {
             InitializeComponent();
         }
-        
+
         private void GenerateRandomCode()
         {
             var randomCode = new Random();
-            List<string> colors = new List<string> {"Rood", "Geel", "Oranje", "Wit", "Groen", "Blauw"};
+            List<string> colors = new List<string> { "Rood", "Geel", "Oranje", "Wit", "Groen", "Blauw" };
             var secretCode = new List<string>();
 
 
@@ -33,8 +34,8 @@ namespace C_mastermindSprint1
                 secretCode.Add(colors[randomCode.Next(colors.Count)]);
 
             }
-                this.Title = "Secret code: " + string.Join(", ", secretCode);
-             
+            this.Title = "Secret code: " + string.Join(", ", secretCode);
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -52,9 +53,113 @@ namespace C_mastermindSprint1
             }
         }
 
-        private void checkButton_Click(object sender, RoutedEventArgs e)
+
+
+        private void ComboBoxColour_SelectionChanged1(object sender, SelectionChangedEventArgs e)
         {
+            if (sender == comboBoxColour1 && comboBoxColour1.SelectedItem != null)
+            {
+                switch (comboBoxColour1.SelectedIndex)
+                {
+                    case 0:
+                        labelColorOne.Background = new SolidColorBrush(Colors.Red);
+                        break;
+                    case 1:
+                        labelColorOne.Background = new SolidColorBrush(Colors.Yellow);
+                        break;
+                    case 2:
+                        labelColorOne.Background = new SolidColorBrush(Colors.Orange);
+                        break;
+                    case 3:
+                        labelColorOne.Background = new SolidColorBrush(Colors.White);
+                        break;
+                    case 4:
+                        labelColorOne.Background = new SolidColorBrush(Colors.Green);
+                        break;
+                    case 5:
+                        labelColorOne.Background = new SolidColorBrush(Colors.Blue);
+                        break;
+                    }
+            }  
+            if (sender == comboBoxColour2 && comboBoxColour2.SelectedItem != null)
+                {
+                    switch (comboBoxColour2.SelectedIndex)
+                    {
+                        case 0:
+                            labelColorTwo.Background = new SolidColorBrush(Colors.Red);
+                            break;
+                        case 1:
+                            labelColorTwo.Background = new SolidColorBrush(Colors.Yellow);
+                            break;
+                        case 2:
+                            labelColorTwo.Background = new SolidColorBrush(Colors.Orange);
+                            break;
+                        case 3:
+                            labelColorTwo.Background = new SolidColorBrush(Colors.White);
+                            break;
+                        case 4:
+                            labelColorTwo.Background = new SolidColorBrush(Colors.Green);
+                            break;
+                        case 5:
+                            labelColorTwo.Background = new SolidColorBrush(Colors.Blue);
+                            break;
+                        }
+                }
+            if (sender == comboBoxColour3 && comboBoxColour3.SelectedItem != null)
+            {
+                switch (comboBoxColour3.SelectedIndex)
+                {
+                    case 0:
+                        labelColorThree.Background = new SolidColorBrush(Colors.Red);
+                        break;
+                    case 1:
+                        labelColorThree.Background = new SolidColorBrush(Colors.Yellow);
+                        break;
+                    case 2:
+                        labelColorThree.Background = new SolidColorBrush(Colors.Orange);
+                        break;
+                    case 3:
+                        labelColorThree.Background = new SolidColorBrush(Colors.White);
+                        break;
+                    case 4:
+                        labelColorThree.Background = new SolidColorBrush(Colors.Green);
+                        break;
+                    case 5:
+                        labelColorThree.Background = new SolidColorBrush(Colors.Blue);
+                        break;
+                    
+                }
+            }
+            if (sender == comboBoxColour4 && comboBoxColour4.SelectedItem != null)
+            {
+                switch (comboBoxColour4.SelectedIndex)
+                {
+                    case 0:
+                        labelColorFour.Background = new SolidColorBrush(Colors.Red);
+                        break;
+                    case 1:
+                        labelColorFour.Background = new SolidColorBrush(Colors.Yellow);
+                        break;
+                    case 2:
+                        labelColorFour.Background = new SolidColorBrush(Colors.Orange);
+                        break;
+                    case 3:
+                        labelColorFour.Background = new SolidColorBrush(Colors.White);
+                        break;
+                    case 4:
+                        labelColorFour.Background = new SolidColorBrush(Colors.Green);
+                        break;
+                    case 5:
+                        labelColorFour.Background = new SolidColorBrush(Colors.Blue);
+                        break;
+                    }
+            }
+
 
         }
     }
 }
+
+
+     
+    
