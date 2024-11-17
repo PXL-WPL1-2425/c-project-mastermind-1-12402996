@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Printing;
+using System.Text;
 using System.Threading.Tasks.Dataflow;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,43 +18,21 @@ namespace C_mastermindSprint1
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<string> colors = new List<string> { "Red", "Yellow", "Orange", "White", "Green", "Blue" };
+        private List<string> secretCode = new List<string>();
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private void GenerateRandomCode()
-        {
             var randomCode = new Random();
-            List<string> colors = new List<string> { "Rood", "Geel", "Oranje", "Wit", "Groen", "Blauw" };
-            var secretCode = new List<string>();
-
-
+            List<string> colors = new List<string> { "Red", "Yellow", "Orange", "White", "Green", "Blue" };
             for (int i = 0; i < 4; i++)
             {
                 secretCode.Add(colors[randomCode.Next(colors.Count)]);
 
             }
             this.Title = "Secret code: " + string.Join(", ", secretCode);
-
         }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            List<string> colors = new List<string> { "Rood", "Geel", "Oranje", "Wit", "Groen", "Blauw" };
-
-            GenerateRandomCode();
-
-            foreach (string color in colors)
-            {
-                comboBoxColour1.Items.Add(new ComboBoxItem { Content = color });
-                comboBoxColour2.Items.Add(new ComboBoxItem { Content = color });
-                comboBoxColour3.Items.Add(new ComboBoxItem { Content = color });
-                comboBoxColour4.Items.Add(new ComboBoxItem { Content = color });
-            }
-        }
-
-
 
         private void ComboBoxColour_SelectionChanged1(object sender, SelectionChangedEventArgs e)
         {
@@ -79,32 +58,32 @@ namespace C_mastermindSprint1
                     case 5:
                         labelColorOne.Background = new SolidColorBrush(Colors.Blue);
                         break;
-                    }
-            }  
-            if (sender == comboBoxColour2 && comboBoxColour2.SelectedItem != null)
-                {
-                    switch (comboBoxColour2.SelectedIndex)
-                    {
-                        case 0:
-                            labelColorTwo.Background = new SolidColorBrush(Colors.Red);
-                            break;
-                        case 1:
-                            labelColorTwo.Background = new SolidColorBrush(Colors.Yellow);
-                            break;
-                        case 2:
-                            labelColorTwo.Background = new SolidColorBrush(Colors.Orange);
-                            break;
-                        case 3:
-                            labelColorTwo.Background = new SolidColorBrush(Colors.White);
-                            break;
-                        case 4:
-                            labelColorTwo.Background = new SolidColorBrush(Colors.Green);
-                            break;
-                        case 5:
-                            labelColorTwo.Background = new SolidColorBrush(Colors.Blue);
-                            break;
-                        }
                 }
+            }
+            if (sender == comboBoxColour2 && comboBoxColour2.SelectedItem != null)
+            {
+                switch (comboBoxColour2.SelectedIndex)
+                {
+                    case 0:
+                        labelColorTwo.Background = new SolidColorBrush(Colors.Red);
+                        break;
+                    case 1:
+                        labelColorTwo.Background = new SolidColorBrush(Colors.Yellow);
+                        break;
+                    case 2:
+                        labelColorTwo.Background = new SolidColorBrush(Colors.Orange);
+                        break;
+                    case 3:
+                        labelColorTwo.Background = new SolidColorBrush(Colors.White);
+                        break;
+                    case 4:
+                        labelColorTwo.Background = new SolidColorBrush(Colors.Green);
+                        break;
+                    case 5:
+                        labelColorTwo.Background = new SolidColorBrush(Colors.Blue);
+                        break;
+                }
+            }
             if (sender == comboBoxColour3 && comboBoxColour3.SelectedItem != null)
             {
                 switch (comboBoxColour3.SelectedIndex)
@@ -127,7 +106,7 @@ namespace C_mastermindSprint1
                     case 5:
                         labelColorThree.Background = new SolidColorBrush(Colors.Blue);
                         break;
-                    
+
                 }
             }
             if (sender == comboBoxColour4 && comboBoxColour4.SelectedItem != null)
@@ -152,11 +131,57 @@ namespace C_mastermindSprint1
                     case 5:
                         labelColorFour.Background = new SolidColorBrush(Colors.Blue);
                         break;
-                    }
+                }
+
+            }
+        }
+
+        private void checkButton_Click(object sender, RoutedEventArgs e)
+        {
+            string checkColor1 = comboBoxColour1.Text;
+            string checkColor2 = comboBoxColour2.Text;
+            string checkColor3 = comboBoxColour3.Text;
+            string checkColor4 = comboBoxColour4.Text;
+            List<string> inputColor = new List<string> { checkColor1, checkColor2, checkColor3, checkColor4 };
+            
+            for(int i = 0; i < 4; i++)
+            {
+                Label checkColors = null;
+
+                switch (i)
+                {
+                    case 0: checkColors = labelColorOne;
+                        break;
+                    case 1: checkColors = labelColorTwo;
+                        break;
+                    case 2: checkColors = labelColorThree;
+                        break;
+                    case 3: checkColors = labelColorFour;
+                        break;
+                }
+
+                if (secretCode[i] == inputColor[i])
+                {
+                    checkColors.BorderBrush = Brushes.DarkRed;
+                    checkColors.BorderThickness = new Thickness(7);                                       
+                }
+                else if (secretCode.Contains(inputColor[i]))
+                {
+                    checkColors.BorderBrush = Brushes.Wheat;
+                    checkColors.BorderThickness = new Thickness(7);
+                }
+                else
+                {
+                    checkColors.BorderBrush = Brushes.Transparent;
+                    checkColors.BorderThickness = new Thickness(7);
+                }
+
+
             }
 
-
+          
         }
+
     }
 }
 
